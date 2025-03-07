@@ -1,0 +1,2 @@
+C:/Users/kekev/Desktop/Proyecto/flutter_application_caffe_shop/android/app/.cxx/Debug/314s45j3/x86/CMakeFiles/edit_cache.dir
+C:/Users/kekev/Desktop/Proyecto/flutter_application_caffe_shop/android/app/.cxx/Debug/314s45j3/x86/CMakeFiles/rebuild_cache.dir

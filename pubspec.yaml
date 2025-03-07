@@ -1,0 +1,45 @@
+name: flutter_application_caffe_shop
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_fonts: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: any
+
+flutter:
+  # Ensure Material Design icons are included
+  uses-material-design: true
+
+  # Correctly indented assets section
+  assets:
+    - assets/images/bg.png
+    - assets/images/Latte.png
+    - assets/images/BlackCoffee.png
+    - assets/images/ColdCoffee.png
+    - assets/images/Espresso.png
+
+    #- images/icons
+
+  # Fonts section (uncomment and edit if necessary)
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+
