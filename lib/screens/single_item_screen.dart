@@ -117,6 +117,67 @@ class SingleItemScreen extends StatelessWidget {
                           color: Colors.white.withOpacity(0.4),
                         ),
                       ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Text(
+                            "Volumen: ",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "60 ml",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 30),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 20,
+                                horizontal: 50,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 50, 54, 56),
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                              child: Text(
+                                "Add to Cart",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: Color(0xFFE57734),
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                              child: Icon(
+                                Icons.favorite_outline,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
