@@ -8,7 +8,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        padding: EdgeInsets.only(top: 100, bottom: 40),
+        padding: EdgeInsets.symmetric(vertical: 100),
         decoration: BoxDecoration(
           color: Colors.black,
           image: DecorationImage(
@@ -20,14 +20,17 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "Coffee Shop",
-              style: GoogleFonts.pacifico(fontSize: 50, color: Colors.white),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Text(
+                "Coffee Shop",
+                style: GoogleFonts.pacifico(fontSize: 50, color: Colors.white),
+              ),
             ),
             Column(
               children: [
                 Text(
-                  "Feeling Low? Take a sip of Coffe",
+                  "Feeling Low? Take a sip of Coffee",
                   style: TextStyle(
                     color: Colors.white.withOpacity(0.8),
                     fontSize: 18,
@@ -53,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(),
                       child: Text(
-                        "Get Start",
+                        "Get Started",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,

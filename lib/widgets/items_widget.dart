@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_caffe_shop/screens/single_item_screen.dart'
     show SingleItemScreen;
 
+// ignore: must_be_immutable
 class ItemsWidget extends StatelessWidget {
   List img = ['Latte', 'Espresso', 'BlackCoffee', 'ColdCoffee'];
+
+  ItemsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

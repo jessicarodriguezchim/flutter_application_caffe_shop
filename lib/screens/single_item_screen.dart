@@ -1,9 +1,33 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
+import "package:flutter/cupertino.dart";
 
-class SingleItemScreen extends StatelessWidget {
+class SingleItemScreen extends StatefulWidget {
   final String img;
   const SingleItemScreen(this.img);
+
+  @override
+  _SingleItemScreenState createState() => _SingleItemScreenState();
+}
+
+class _SingleItemScreenState extends State<SingleItemScreen> {
+  int cantidad = 1; // Variable para controlar la cantidad
+  double precio = 30.20; // Precio del producto
+
+  // Función para aumentar la cantidad
+  void _incrementarCantidad() {
+    setState(() {
+      cantidad++;
+    });
+  }
+
+  // Función para disminuir la cantidad
+  void _decrementarCantidad() {
+    if (cantidad > 1) {
+      setState(() {
+        cantidad--;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +54,7 @@ class SingleItemScreen extends StatelessWidget {
                 SizedBox(height: 50),
                 Center(
                   child: Image.asset(
-                    "assets/images/$img.png",
+                    "assets/images/${widget.img}.png", // Asegúrate de usar el widget.img
                     width: MediaQuery.of(context).size.width / 1.2,
                   ),
                 ),
@@ -49,7 +73,8 @@ class SingleItemScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        img,
+                        widget
+                            .img, // Usando widget.img para mostrar el nombre del producto
                         style: TextStyle(
                           fontSize: 30,
                           letterSpacing: 1,
@@ -62,6 +87,7 @@ class SingleItemScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            // Contenedor de control de cantidad
                             Container(
                               padding: EdgeInsets.all(15),
                               width: 120,
@@ -74,14 +100,19 @@ class SingleItemScreen extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(
-                                    CupertinoIcons.minus,
-                                    size: 18,
-                                    color: Colors.white,
+                                  // Botón de disminución
+                                  IconButton(
+                                    icon: Icon(
+                                      CupertinoIcons.minus,
+                                      size: 18,
+                                      color: Colors.white,
+                                    ),
+                                    onPressed: _decrementarCantidad,
                                   ),
                                   SizedBox(width: 15),
+                                  // Mostrar cantidad
                                   Text(
-                                    "2",
+                                    "$cantidad",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
@@ -89,16 +120,21 @@ class SingleItemScreen extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(width: 15),
-                                  Icon(
-                                    CupertinoIcons.minus,
-                                    size: 18,
-                                    color: Colors.white,
+                                  // Botón de incremento
+                                  IconButton(
+                                    icon: Icon(
+                                      CupertinoIcons.plus,
+                                      size: 18,
+                                      color: Colors.white,
+                                    ),
+                                    onPressed: _incrementarCantidad,
                                   ),
                                 ],
                               ),
                             ),
+                            // Mostrar precio actualizado según la cantidad
                             Text(
-                              "\$ 30.20",
+                              "\$ ${precio * cantidad}",
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
@@ -110,7 +146,7 @@ class SingleItemScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        "Coffe is a major source of antioxidants in the diet. It has many health benefits.",
+                        "Coffee is a major source of antioxidants in the diet. It has many health benefits.",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
@@ -121,7 +157,7 @@ class SingleItemScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "Volumen: ",
+                            "Volume: ",
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -140,39 +176,54 @@ class SingleItemScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 30),
+                      // Botones para agregar al carrito o favorito
                       Container(
                         width: MediaQuery.of(context).size.width,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 20,
-                                horizontal: 50,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 50, 54, 56),
-                                borderRadius: BorderRadius.circular(18),
-                              ),
-                              child: Text(
-                                "Add to Cart",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 1,
+                            // Botón de agregar al carrito
+                            GestureDetector(
+                              onTap: () {
+                                // Aquí podrías agregar la lógica para agregar al carrito
+                                print("Producto agregado al carrito");
+                              },
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 20,
+                                  horizontal: 50,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 50, 54, 56),
+                                  borderRadius: BorderRadius.circular(18),
+                                ),
+                                child: Text(
+                                  "Add to Cart",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                  ),
                                 ),
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(20),
-                              decoration: BoxDecoration(
-                                color: Color(0xFFE57734),
-                                borderRadius: BorderRadius.circular(18),
-                              ),
-                              child: Icon(
-                                Icons.favorite_outline,
-                                color: Colors.white,
+                            // Botón de agregar a favoritos
+                            GestureDetector(
+                              onTap: () {
+                                // Aquí podrías agregar la lógica para agregar a favoritos
+                                print("Producto agregado a favoritos");
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFE57734),
+                                  borderRadius: BorderRadius.circular(18),
+                                ),
+                                child: Icon(
+                                  Icons.favorite_outline,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ],
