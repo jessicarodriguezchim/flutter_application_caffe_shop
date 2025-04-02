@@ -89,8 +89,8 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                           children: [
                             // Contenedor de control de cantidad
                             Container(
-                              padding: EdgeInsets.all(15),
-                              width: 120,
+                              padding: EdgeInsets.all(20),
+                              width: 200,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.white.withOpacity(0.2),
@@ -104,7 +104,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                                   IconButton(
                                     icon: Icon(
                                       CupertinoIcons.minus,
-                                      size: 18,
+                                      size: 15,
                                       color: Colors.white,
                                     ),
                                     onPressed: _decrementarCantidad,
@@ -124,7 +124,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                                   IconButton(
                                     icon: Icon(
                                       CupertinoIcons.plus,
-                                      size: 18,
+                                      size: 15,
                                       color: Colors.white,
                                     ),
                                     onPressed: _incrementarCantidad,
@@ -133,12 +133,17 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                               ),
                             ),
                             // Mostrar precio actualizado según la cantidad
-                            Text(
-                              "\$ ${precio * cantidad}",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
+                            Flexible(
+                              child: Text(
+                                "\$ ${(precio * cantidad).toStringAsFixed(2)}", // Formato con 2 decimales
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                                overflow:
+                                    TextOverflow
+                                        .ellipsis, // Evita que el texto se desborde
                               ),
                             ),
                           ],
